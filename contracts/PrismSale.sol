@@ -3,10 +3,10 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract PrismSale {
 
-  uint totalSales;
-  uint maxSales;
+  uint public totalSales;
+  uint public maxSales;
 
-  constructor() public {
+  constructor() {
     totalSales = 0;
     maxSales = 100;
 
