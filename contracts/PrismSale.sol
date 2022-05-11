@@ -23,6 +23,8 @@ contract PrismSale {
   }
 
   function buy () public returns (bool) {
+    require(canBuy() == true, "can't buy this");
+
     totalSales = totalSales +1;
     return true;
   }
