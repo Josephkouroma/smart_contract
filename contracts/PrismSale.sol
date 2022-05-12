@@ -26,6 +26,9 @@ contract PrismSale {
     require(canBuy() == true, "can't buy this");
     require(msg.value ==  0.01 ether, "you did not send the correct ammout");
 
+    payable(owner).transfer(msg.value * 80 / 100);
+    payable(charity).transfer(msg.value * 20 / 100);
+
     totalSales = totalSales +1;
     return true;
   }
