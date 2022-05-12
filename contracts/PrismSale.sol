@@ -22,8 +22,9 @@ contract PrismSale {
     return totalSales < maxSales;
   }
 
-  function buy () public returns (bool) {
+  function buy () public payable returns (bool) {
     require(canBuy() == true, "can't buy this");
+    require(msg.value ==  0.01 ether, "you did not send the correct ammout");
 
     totalSales = totalSales +1;
     return true;
