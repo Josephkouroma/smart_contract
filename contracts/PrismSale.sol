@@ -20,11 +20,11 @@ contract PrismSale {
 
   }
 
-  function canBuy () public returns (bool) {
+  function canBuy () public view returns (bool) {
     return totalSales < maxSales;
   }
 
-  function hasAccess () public returns (bool) {
+  function hasAccess () public view returns (bool) {
     return sales[msg.sender];
   }
 
