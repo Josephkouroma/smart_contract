@@ -36,6 +36,10 @@ export default function Home() {
     // TODO: setTotalSales + setCanBuy
     // check if we can buy it (not sold out)
     // and check how many sold
+
+    contract.methods.canBuy().call().then(setCanBuy);
+
+    contract.methods.totalSales().call().then(setTotalSales);
   }
 
   const buy = async function () {
