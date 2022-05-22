@@ -30,6 +30,15 @@ export default function Home() {
     // TODO: setCanBuy
     // check if we have access
     // using accounts[0] and the contract
+    if (accounts.length > 0) {
+      contract.methods
+        .hasAccess()
+        .call({ from: accounts[0] })
+        .then(setHasAccess);
+    } else {
+      setHasAccess(false);
+    }
+
   }
 
   const fetchCanBuy = async function () {
@@ -52,6 +61,9 @@ export default function Home() {
           from: accounts[0],
           value: web3.utils.toWei('0.01', 'ether'),
         });
+
+        checkAccess();
+        fetchCanBuy();
       } catch (e) {
         alert(e);
       }
